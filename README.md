@@ -10,4 +10,4 @@
 # php artisan db:seed
 # npm run dev 
 # php artisan storage:link
-# fin222
+# fin
