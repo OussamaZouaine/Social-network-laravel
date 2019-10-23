@@ -10,11 +10,11 @@ use App\Http\Controllers\LanguageController;
 // Switch between the included languages
 Route::get('lang/{lang}', [LanguageController::class, 'swap']);
 Route::get('/test', function () {
-    $info = App\Models\Auth\User::find(1)->info;
+    // $info = App\Models\Auth\User::find(1)->info;
 
-     echo($info?'hello':'null');
+     echo('null');
      
-});
+})->name('test');
 /*
  * Frontend Routes
  * Namespaces indicate folder structure

@@ -16,6 +16,7 @@ use LangleyFoxall\LaravelNISTPasswordRules\PasswordRules;
 class LoginController extends Controller
 {
     use AuthenticatesUsers;
+   
 
     /**
      * Where to redirect users after login.
