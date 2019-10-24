@@ -23,6 +23,7 @@ return [
         'buttons' => [
             'save' => 'Save',
             'update' => 'Update',
+            'next'=>'Next',
         ],
         'hide' => 'Hide',
         'inactive' => 'Inactive',

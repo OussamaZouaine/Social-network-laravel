@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend\User;
 
 use App\Http\Controllers\Controller;
+use Log;
 
 /**
  * Class AccountController.
@@ -14,6 +15,8 @@ class AccountController extends Controller
      */
     public function index()
     {
+
+        Log::info(\Auth::user()->info);
         return view('frontend.user.account');
     }
 }

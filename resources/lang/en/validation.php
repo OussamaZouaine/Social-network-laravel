@@ -192,6 +192,7 @@ return [
             'avatar' => 'Avatar Location',
             'email' => 'E-mail Address',
             'first_name' => 'First Name',
+            'gender'=>'gender',
             'last_name' => 'Last Name',
             'name' => 'Full Name',
             'password' => 'Password',

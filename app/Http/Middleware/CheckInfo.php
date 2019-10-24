@@ -15,7 +15,7 @@ class CheckInfo
      */
     public function handle($request, Closure $next)
     {
-        
+
         if (auth()->check()) {
             if (auth()->user()->can('view backend')) {
                 return $next($request);
@@ -24,13 +24,13 @@ class CheckInfo
             if($user->info){
                    return $next($request);
             }else{
-               return redirect('dashboard');
+               return redirect('info');
             }
-    
-            
+
+
         }
 
-      
-       
+
+
     }
 }

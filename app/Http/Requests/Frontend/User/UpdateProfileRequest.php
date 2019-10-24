@@ -37,6 +37,7 @@ class UpdateProfileRequest extends FormRequest
             'country'=>[],
             'city'=>[],
             'birthday'=>[],
+            'gender' => [],
 
         ];
     }

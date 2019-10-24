@@ -1,9 +1,16 @@
-@extends('work.layouts.header')
+@extends('frontend.layouts.app')
+
 @section('content')
 
-    {{ html()->modelForm($logged_in_user, 'POST', route('frontend.user.profile.update'))->class('form-horizontal')->attribute('enctype', 'multipart/form-data')->open() }}
+    {{ html()->modelForm($logged_in_user, 'POST', route('frontend.info.update'))->class('form-horizontal')->attribute('enctype', 'multipart/form-data')->open() }}
     @method('PATCH')
-
+    <div class="row">
+        <div class="col">
+            <div class="form-group mb-0 clearfix">
+                {{ form_submit(__('labels.general.buttons.next')) }}
+            </div><!--form-group-->
+        </div><!--col-->
+    </div><!--row-->
     <div class="row">
         <div class="col">
             <div class="form-group">
@@ -51,6 +58,29 @@
                     ->placeholder(__('validation.attributes.frontend.last_name'))
                     ->attribute('maxlength', 191)
                     ->required() }}
+            </div><!--form-group-->
+        </div><!--col-->
+    </div><!--row-->
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                {{ html()->label(__('validation.attributes.frontend.gender'))->for('gender') }}
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="gender" value="male" @if(Auth::user()->gender=='male')checked @endif>male
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="gender" value="female"  @if(Auth::user()->gender=='female')checked @endif>female
+                    </label>
+                </div>
+                <div class="form-check ">
+                    <label class="form-check-label">
+                        <input type="radio" class="form-check-input" name="gender" value="other"  @if(Auth::user()->gender=='other')checked @endif >other
+                    </label>
+                </div>
+
             </div><!--form-group-->
         </div><!--col-->
     </div><!--row-->
@@ -327,16 +357,40 @@
     <div class="row">
         <div class="col">
             <div class="form-group">
-                <label>Birthday</label>
-                <input type="date" name="birthday">
+                {{ html()->label('birthday')->for('birthday') }}
+                <input type="date"  class="form-control"  name="birthday">
             </div><!--form-group-->
         </div><!--col-->
     </div><!--row-->
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                {{ html()->label('School/University/College')->for('university') }}
+                <input type="text" name="university" class="form-control" placeholder="University name">
+            </div><!--form-group-->
+        </div><!--col-->
+    </div><!--row-->
+    <div class="row">
+        <div class="col">
+            <div class="form-group">
+                {{ html()->label('Year of study')->for('year') }}
+                <select name="year" class="form-control" >
+                    <option value="1">1st year</option>
+                    <option value="2">2nd year</option>
+                    <option value="3">3rd year</option>
+                    <option value="4">4th year</option>
+                    <option value="5">5th year</option>
+                    <option value="6">6th year</option>
+                    <option value="7">7th year</option>
+                </select>
 
+            </div><!--form-group-->
+        </div><!--col-->
+    </div><!--row-->
     <div class="row">
         <div class="col">
             <div class="form-group mb-0 clearfix">
-                {{ form_submit(__('labels.general.buttons.update')) }}
+                {{ form_submit(__('labels.general.buttons.next')) }}
             </div><!--form-group-->
         </div><!--col-->
     </div><!--row-->

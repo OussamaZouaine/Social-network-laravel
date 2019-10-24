@@ -33,6 +33,7 @@ class UserTableSeeder extends Seeder
             'email' => 'user@user.com',
             'password' => 'secret',
             'confirmation_code' => md5(uniqid(mt_rand(), true)),
+            'gender'=>'male',
             'confirmed' => true,
         ]);
 

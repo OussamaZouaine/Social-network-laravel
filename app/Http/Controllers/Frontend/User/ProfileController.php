@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Repositories\Frontend\Auth\UserRepository;
 use App\Http\Requests\Frontend\User\UpdateProfileRequest;
 
+
 /**
  * Class ProfileController.
  */
@@ -36,20 +37,29 @@ class ProfileController extends Controller
      */
     public function update(UpdateProfileRequest $request)
     {
-        
+
         $output = $this->userRepository->update(
             $request->user()->id,
-            $request->only('first_name', 'last_name', 'email', 'avatar_type', 'avatar_location'),
+            $request->only('first_name', 'last_name', 'email', 'avatar_type', 'avatar_location','gender'),
             $request->has('avatar_location') ? $request->file('avatar_location') : false
         );
         $user = Auth::user();
+
         $info=$user->info?:new Info;
         $info->city=$request['city'];
+
         $info->birthday=date('Y-m-d', strtotime($request['birthday']));
+
         $info->country=$request['country'];
         $info->gender=$request['gender'];
+        $info->university=$request['university'];
+        $info->universityYear=$request['year'];
+
+
         //save info
         $user->info()->save($info);
+
+
         // E-mail address was updated, user has to reconfirm
         if (is_array($output) && $output['email_changed']) {
             auth()->logout();

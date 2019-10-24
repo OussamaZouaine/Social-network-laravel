@@ -23,7 +23,7 @@ class CreateInfosTable extends Migration
             $table->string('gender')->nullable();
             $table->string('language', 15)->nullable();
             $table->string('university')->nullable();
-            $table->string('universityYear')->nullable();
+            $table->integer('universityYear')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
