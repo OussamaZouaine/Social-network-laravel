@@ -10,6 +10,6 @@ class Info extends Model
 
     public function user()
     {
-        return $this->belongsTo('App\Models\Auth\Usemr');
+        return $this->belongsTo('App\Models\Auth\User');
     }
 }

@@ -16,16 +16,19 @@ class CheckInfo
     public function handle($request, Closure $next)
     {
         
-        echo('hello');
+        if (auth()->check()) {
+            if (auth()->user()->can('view backend')) {
+                return $next($request);
+            }
             $user = Auth::user();
             if($user->info){
                    return $next($request);
             }else{
-                return redirect('dashboard');
+               return redirect('dashboard');
             }
     
             
-        
+        }
 
       
        

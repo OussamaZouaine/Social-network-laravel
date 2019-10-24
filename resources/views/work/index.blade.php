@@ -1,10 +1,10 @@
 @extends('work.layouts.header')
 @section('content')
 <body>
-	
+
 
 	<div class="wrapper">
-		
+
 
 
 		<header>
@@ -224,14 +224,26 @@
 										<div class="user-profile">
 											<div class="username-dt">
 												<div class="usr-pic">
-													<img src="http://via.placeholder.com/100x100" alt="">
+													<img src="{{ $logged_in_user->picture }}" alt="">
 												</div>
 											</div><!--username-dt end-->
 											<div class="user-specs">
-												<h3>John Doe</h3>
-												<span>Graphic Designer at Self Employed</span>
+												<h3>{{ $logged_in_user->name.' '.$logged_in_user->lastname }}</h3>
+												<span>{{ $logged_in_user->email }}</span>
 											</div>
 										</div><!--user-profile end-->
+                                        <p class="card-text">
+
+                                            <a href="{{ route('frontend.user.account')}}" class="btn btn-info btn-sm mb-1">
+                                                <i class="fas fa-user-circle"></i> @lang('navs.frontend.user.account')
+                                            </a>
+
+                                            @can('view backend')
+                                                &nbsp;<a href="{{ route('admin.dashboard')}}" class="btn btn-danger btn-sm mb-1">
+                                                    <i class="fas fa-user-secret"></i> @lang('navs.frontend.user.administration')
+                                                </a>
+                                            @endcan
+                                        </p>
 										<ul class="user-fw-status">
 											<li>
 												<h4>Following</h4>
@@ -379,7 +391,7 @@
 													<li><a href="#" title="">PHP</a></li>
 													<li><a href="#" title="">CSS</a></li>
 													<li><a href="#" title="">Javascript</a></li>
-													<li><a href="#" title="">Wordpress</a></li> 	
+													<li><a href="#" title="">Wordpress</a></li>
 												</ul>
 											</div>
 											<div class="job-status-bar">
@@ -388,7 +400,7 @@
 														<a href="#"><i class="la la-heart"></i> Like</a>
 														<img src="images/liked-img.png" alt="">
 														<span>25</span>
-													</li> 
+													</li>
 													<li><a href="#" title="" class="com"><img src="images/com.png" alt=""> Comment 15</a></li>
 												</ul>
 												<a><i class="la la-eye"></i>Views 50</a>
@@ -511,7 +523,7 @@
 													<li><a href="#" title="">PHP</a></li>
 													<li><a href="#" title="">CSS</a></li>
 													<li><a href="#" title="">Javascript</a></li>
-													<li><a href="#" title="">Wordpress</a></li> 	
+													<li><a href="#" title="">Wordpress</a></li>
 												</ul>
 											</div>
 											<div class="job-status-bar">
@@ -520,7 +532,7 @@
 														<a href="#"><i class="la la-heart"></i> Like</a>
 														<img src="images/liked-img.png" alt="">
 														<span>25</span>
-													</li> 
+													</li>
 													<li><a href="#" title="" class="com"><img src="images/com.png" alt=""> Comment 15</a></li>
 												</ul>
 												<a><i class="la la-eye"></i>Views 50</a>
@@ -569,7 +581,7 @@
 														<li><a href="#" title="">PHP</a></li>
 														<li><a href="#" title="">CSS</a></li>
 														<li><a href="#" title="">Javascript</a></li>
-														<li><a href="#" title="">Wordpress</a></li> 	
+														<li><a href="#" title="">Wordpress</a></li>
 													</ul>
 												</div>
 												<div class="job-status-bar">
@@ -578,7 +590,7 @@
 															<a href="#"><i class="la la-heart"></i> Like</a>
 															<img src="images/liked-img.png" alt="">
 															<span>25</span>
-														</li> 
+														</li>
 														<li><a href="#" title="" class="com"><img src="images/com.png" alt=""> Comment 15</a></li>
 													</ul>
 													<a><i class="la la-eye"></i>Views 50</a>
@@ -658,15 +670,7 @@
 							</div>
 							<div class="col-lg-3 pd-right-none no-pd">
 								<div class="right-sidebar">
-									<div class="widget widget-about">
-										<img src="images/wd-logo.png" alt="">
-										<h3>Track Time on Workwise</h3>
-										<span>Pay only for the Hours worked</span>
-										<div class="sign_link">
-											<h3><a href="#" title="">Sign up</a></h3>
-											<a href="#" title="">Learn More</a>
-										</div>
-									</div><!--widget-about end-->
+
 									<div class="widget widget-jobs">
 										<div class="sd-title">
 											<h3>Top Jobs</h3>
@@ -818,7 +822,7 @@
 							</div>
 						</div>
 					</div><!-- main-section-data end-->
-				</div> 
+				</div>
 			</div>
 		</main>
 
@@ -827,7 +831,7 @@
 
 		<div class="post-popup pst-pj">
 			<div class="post-project">
-				<h3>Post a project</h3>
+				<h3>Postt</h3>
 				<div class="post-project-fields">
 					<form>
 						<div class="row">

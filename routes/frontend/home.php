@@ -25,6 +25,11 @@ Route::group(['middleware' => ['auth', 'password_expires']], function () {
     Route::group(['namespace' => 'User', 'as' => 'user.'], function () {
         // User Dashboard Specific
         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+        
+         Route::post('info',[ProfileController::class,'setInfo'])->name('fill');
+         route::get('info',function (){
+            return view('work.user.info');
+         })->name('info');
 
         // User Account Specific
         Route::get('account', [AccountController::class, 'index'])->name('account')->middleware('checkInfo');

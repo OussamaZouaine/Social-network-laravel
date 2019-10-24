@@ -34,6 +34,10 @@ class UpdateProfileRequest extends FormRequest
             'email' => ['sometimes', 'required', 'email'],
             'avatar_type' => ['required', Rule::in(array_merge(['gravatar', 'storage'], (new SocialiteHelper)->getAcceptedProviders()))],
             'avatar_location' => ['sometimes', 'image'],
+            'country'=>[],
+            'city'=>[],
+            'birthday'=>[],
+
         ];
     }
 }

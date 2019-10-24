@@ -17,13 +17,15 @@ class CreateInfosTable extends Migration
         Schema::create('infos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
-            $table->timestamps();
-            $table->date('birthday');
-            $table->string('city', 100);
-            $table->string('country', 100);
-            $table->string('gender');
+            $table->date('birthday')->nullable();
+            $table->string('city', 100)->nullable();
+            $table->string('country', 100)->nullable();
+            $table->string('gender')->nullable();
             $table->string('language', 15)->nullable();
+            $table->string('university')->nullable();
+            $table->string('universityYear')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 
